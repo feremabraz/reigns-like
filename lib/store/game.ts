@@ -1,10 +1,8 @@
 import { atom } from 'jotai';
-import type { StaticImageData } from 'next/image';
 
 export interface GameCard {
   id: string;
   character: string;
-  characterImage: StaticImageData;
   prompt: string;
   yesText?: string;
   noText?: string;

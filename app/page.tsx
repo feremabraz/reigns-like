@@ -36,8 +36,6 @@ export default function Home() {
     completeLoading();
   };
 
-  const handleCardChoice = () => {};
-
   const currentCalendarYear = 700 + yearsInPower;
 
   if (isLoading) {
@@ -66,7 +64,7 @@ export default function Home() {
           </div>
         </header>
         <main className="flex items-center justify-center min-h-screen pt-16">
-          {currentCard && <GameCard card={currentCard} onChoice={handleCardChoice} />}
+          {currentCard && <GameCard />}
         </main>
       </div>
     </AnimatePresence>
