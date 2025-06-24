@@ -1,0 +1,40 @@
+{
+  "author": {
+    "name": "Fernando Emmanuel Braz",
+    "url": "https://github.com/feremabraz"
+  },
+  "dependencies": {
+    "@use-gesture/react": "^10.3.1",
+    "clsx": "^2.1.1",
+    "jotai": "^2.12.5",
+    "lucide-react": "^0.522.0",
+    "motion": "^12.19.1",
+    "next": "15.3.4",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "tailwind-merge": "^3.3.1"
+  },
+  "description": "A fan-made browser-based version of the game Reigns.",
+  "devDependencies": {
+    "@biomejs/biome": "^2.0.4",
+    "@tailwindcss/postcss": "^4.1.10",
+    "@types/node": "^24.0.3",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "husky": "^9.1.7",
+    "tailwindcss": "^4.1.10",
+    "typescript": "^5.8.3"
+  },
+  "name": "reigns-like",
+  "private": true,
+  "scripts": {
+    "build": "next build",
+    "dev": "next dev --turbopack",
+    "format": "biome format --write .",
+    "lint": "biome check --write .",
+    "prepare": "husky",
+    "start": "next start",
+    "typecheck": "tsc --noEmit"
+  },
+  "version": "0.1.0"
+}
