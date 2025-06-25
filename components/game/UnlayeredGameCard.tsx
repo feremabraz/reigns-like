@@ -73,7 +73,6 @@ export default function UnlayeredGameCard() {
                 fill
                 className="object-contain"
                 style={{
-                  imageRendering: 'pixelated',
                   objectPosition: 'center center',
                 }}
                 draggable={false}

@@ -4,9 +4,9 @@ import { useAtom, useAtomValue, useSetAtom } from 'jotai';
 import { AnimatePresence } from 'motion/react';
 import Image from 'next/image';
 import { useEffect } from 'react';
-import GameCard from '@/components/game/GameCard';
 import GameOverScreen from '@/components/game/GameOverScreen';
 import LoadingScreen from '@/components/game/LoadingScreen';
+import ProgramaticGameCard from '@/components/game/ProgramaticGameCard';
 import ResourceMeters from '@/components/game/ResourceMeters';
 import { useAmbientMusic } from '@/hooks/useAmbientMusic';
 import { gameCards } from '@/lib/data/cards';
@@ -75,17 +75,22 @@ export default function Home() {
             draggable={false}
           />
         </div>
-        <header className="fixed top-0 left-0 right-0 z-10 flex justify-between items-center p-4">
-          <div className="backdrop-blur-sm bg-gray-900/60 rounded-lg px-4 py-2">
+        <header className="fixed top-0 left-0 right-0 z-10 p-4">
+          <div className="flex justify-between items-center w-full bg-gray-900/60 backdrop-blur-sm rounded-lg p-2">
             <ResourceMeters />
-          </div>
-          <div className="backdrop-blur-sm bg-gray-900/60 rounded-lg px-4 py-2 text-center">
-            <h2 className="text-xl font-semibold">{currentCalendarYear}</h2>
+            <div className="text-center px-4">
+              <h2 className="text-xl font-semibold">{currentCalendarYear}</h2>
+            </div>
           </div>
         </header>
         <main className="flex items-center justify-center min-h-screen pt-16 relative z-5">
-          {currentCard && <GameCard />}
+          {currentCard && <ProgramaticGameCard />}
         </main>
+        <footer className="fixed bottom-0 left-0 right-0 z-10 p-4">
+          <div className="flex justify-center items-center w-full bg-gray-900/60 backdrop-blur-sm rounded-lg p-4">
+            <p>placeholder</p>
+          </div>
+        </footer>
       </div>
     </AnimatePresence>
   );

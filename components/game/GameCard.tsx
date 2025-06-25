@@ -74,7 +74,6 @@ export default function GameCard() {
                 fill
                 className="object-contain"
                 style={{
-                  imageRendering: 'pixelated',
                   objectPosition: 'center center',
                 }}
                 draggable={false}
@@ -94,10 +93,7 @@ export default function GameCard() {
           />
         </div>
         {/* Foreground illustration layer */}
-        <div
-          className="absolute inset-0 w-full h-full z-10"
-          style={{ imageRendering: 'pixelated' }}
-        >
+        <div className="absolute inset-0 w-full h-full z-10">
           <Image
             src="/cards/card-illustration-foreground-01.png"
             alt="Card foreground"
@@ -107,10 +103,7 @@ export default function GameCard() {
           />
         </div>
         {/* Card template/frame layer (topmost) */}
-        <div
-          className="absolute inset-0 w-full h-full z-40 pointer-events-none"
-          style={{ imageRendering: 'pixelated' }}
-        >
+        <div className="absolute inset-0 w-full h-full z-40 pointer-events-none">
           <Image
             src="/cards/card-template.png"
             alt="Card template"

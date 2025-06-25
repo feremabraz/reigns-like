@@ -37,7 +37,6 @@ export default function LoadingScreen({ onLoadingComplete }: LoadingScreenProps)
       className="fixed inset-0 z-50 flex flex-col items-center justify-between bg-cover bg-center bg-no-repeat cursor-gauntlet-open border-0 p-0"
       style={{
         backgroundImage: "url('/backgrounds/coronation-01.png')",
-        imageRendering: 'pixelated',
       }}
       onClick={handleContinue}
       onKeyDown={handleKeyDown}
