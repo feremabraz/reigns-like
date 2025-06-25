@@ -1,1 +1,82 @@
 @import "tailwindcss";
+
+/* Define Pixelify Sans as the default pixel art font */
+:root {
+  --font-pixelify: "Pixelify Sans", sans-serif;
+}
+
+body {
+  font-family: var(--font-pixelify);
+}
+
+/* PC Game-like behavior - prevent text selection and dragging */
+* {
+  cursor: url("/cursors/gauntlet_default.svg"), auto;
+  user-select: none; /* Prevent text selection */
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  -webkit-user-drag: none; /* Prevent image/element dragging */
+  -webkit-touch-callout: none; /* Disable iOS callout */
+}
+
+/* Allow text selection for input fields and editable content */
+input,
+textarea,
+[contenteditable="true"],
+.allow-select {
+  user-select: text;
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+}
+
+/* Disable image dragging specifically */
+img {
+  -webkit-user-drag: none;
+  pointer-events: none; /* Make images non-interactive */
+}
+
+/* Re-enable pointer events for interactive images */
+img.interactive,
+button img,
+a img {
+  pointer-events: auto;
+}
+
+/* Custom gauntlet cursors */
+button,
+a,
+[role="button"],
+[tabindex]:not([tabindex="-1"]),
+input[type="submit"],
+input[type="button"],
+input[type="reset"],
+.cursor-pointer {
+  cursor: url("/cursors/gauntlet_point.svg"), pointer;
+}
+
+/* Draggable elements - open gauntlet */
+[draggable="true"],
+.cursor-grab {
+  cursor: url("/cursors/gauntlet_open.svg"), grab;
+}
+
+/* When actively dragging */
+[draggable="true"]:active,
+.cursor-grabbing {
+  cursor: url("/cursors/gauntlet_open.svg"), grabbing;
+}
+
+/* Utility classes for manual application */
+.gauntlet-default {
+  cursor: url("/cursors/gauntlet_default.svg"), auto;
+}
+
+.gauntlet-point {
+  cursor: url("/cursors/gauntlet_point.svg"), pointer;
+}
+
+.gauntlet-open {
+  cursor: url("/cursors/gauntlet_open.svg"), grab;
+}

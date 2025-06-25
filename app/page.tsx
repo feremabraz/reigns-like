@@ -2,6 +2,7 @@
 
 import { useAtom, useAtomValue, useSetAtom } from 'jotai';
 import { AnimatePresence } from 'motion/react';
+import Image from 'next/image';
 import { useEffect } from 'react';
 import GameCard from '@/components/game/GameCard';
 import GameOverScreen from '@/components/game/GameOverScreen';
@@ -57,13 +58,26 @@ export default function Home() {
   return (
     <AnimatePresence mode="wait">
       <div className="min-h-screen bg-gray-900 text-white overflow-hidden relative font-normal">
-        <header className="fixed top-0 left-0 right-0 z-10 flex justify-between items-center p-4 bg-gray-900/50 backdrop-blur-sm">
-          <ResourceMeters />
-          <div className="text-center">
+        {/* Pixel art background */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/backgrounds/castle-01.png"
+            alt="Background"
+            fill
+            className="object-cover opacity-80"
+            priority
+            draggable={false}
+          />
+        </div>
+        <header className="fixed top-0 left-0 right-0 z-10 flex justify-between items-center p-4">
+          <div className="backdrop-blur-sm bg-gray-900/60 rounded-lg px-4 py-2">
+            <ResourceMeters />
+          </div>
+          <div className="backdrop-blur-sm bg-gray-900/60 rounded-lg px-4 py-2 text-center">
             <h2 className="text-xl font-semibold">{currentCalendarYear}</h2>
           </div>
         </header>
-        <main className="flex items-center justify-center min-h-screen pt-16">
+        <main className="flex items-center justify-center min-h-screen pt-16 relative z-5">
           {currentCard && <GameCard />}
         </main>
       </div>

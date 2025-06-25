@@ -12,7 +12,7 @@ import {
   yearsInPowerAtom,
 } from '@/lib/store/game';
 
-export default function GameCard() {
+export default function UnlayeredGameCard() {
   const [cardIndex, setCardIndex] = useAtom(cardIndexAtom);
   const [card] = useAtom(currentCardAtom);
   const applyEffect = useSetAtom(applyCardEffectAtom);
@@ -63,14 +63,13 @@ export default function GameCard() {
         }}
         style={{ touchAction: 'pan-x' }}
       >
-        {/* Background container */}
+        {/* Single unlayered illustration */}
         <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
-          {/* Background image - sized to fit card's visible area */}
           <div className="absolute inset-0 w-full h-full flex items-center justify-center">
             <div className="relative" style={{ width: '90%', height: '90%' }}>
               <Image
-                src="/cards/card-illustration-background-01.png"
-                alt="Card background"
+                src="/cards/card-illustration-unlayered-01.png"
+                alt="Card illustration"
                 fill
                 className="object-contain"
                 style={{
@@ -93,32 +92,7 @@ export default function GameCard() {
             draggable={false}
           />
         </div>
-        {/* Foreground illustration layer */}
-        <div
-          className="absolute inset-0 w-full h-full z-10"
-          style={{ imageRendering: 'pixelated' }}
-        >
-          <Image
-            src="/cards/card-illustration-foreground-01.png"
-            alt="Card foreground"
-            fill
-            className="object-contain"
-            draggable={false}
-          />
-        </div>
-        {/* Card template/frame layer (topmost) */}
-        <div
-          className="absolute inset-0 w-full h-full z-40 pointer-events-none"
-          style={{ imageRendering: 'pixelated' }}
-        >
-          <Image
-            src="/cards/card-template.png"
-            alt="Card template"
-            fill
-            className="object-contain"
-            draggable={false}
-          />
-        </div>
+
         {/* Character name on ribbon */}
         <div
           className="absolute left-1/2 z-40"
@@ -140,6 +114,7 @@ export default function GameCard() {
             {card.character}
           </h3>
         </div>
+
         {/* Prompt text below ribbon */}
         <div
           className="absolute left-1/2 z-40"
@@ -152,6 +127,7 @@ export default function GameCard() {
             {card.prompt}
           </p>
         </div>
+
         {/* Drag direction overlay */}
         <motion.div
           className="absolute top-0 left-0 w-80 h-[400px] pointer-events-none z-50 rounded-lg"
@@ -166,6 +142,7 @@ export default function GameCard() {
           transition={{ duration: 0.2 }}
         />
       </motion.div>
+
       {/* Choices below card */}
       <div className="flex flex-row items-center justify-center gap-8 mt-6 mx-auto">
         <Button variant="destructive" size="lg" tabIndex={0} onClick={() => handleChoice('no')}>
