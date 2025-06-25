@@ -11,10 +11,10 @@ export function useSound() {
         soundFile = '/sounds/click.ogg';
         break;
       case 'select-yes':
-        soundFile = '/sounds/selects-yes.ogg';
+        soundFile = '/sounds/select-yes.ogg';
         break;
       case 'select-no':
-        soundFile = '/sounds/selects-no.ogg';
+        soundFile = '/sounds/select-no.ogg';
         break;
       default:
         return;

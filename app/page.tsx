@@ -8,6 +8,7 @@ import GameCard from '@/components/game/GameCard';
 import GameOverScreen from '@/components/game/GameOverScreen';
 import LoadingScreen from '@/components/game/LoadingScreen';
 import ResourceMeters from '@/components/game/ResourceMeters';
+import { useAmbientMusic } from '@/hooks/useAmbientMusic';
 import { gameCards } from '@/lib/data/cards';
 import {
   cardIndexAtom,
@@ -25,6 +26,7 @@ export default function Home() {
   const yearsInPower = useAtomValue(yearsInPowerAtom);
   const setCardIndex = useSetAtom(cardIndexAtom);
   const completeLoading = useSetAtom(completeLoadingAtom);
+  const { play: playAmbientMusic, isLoading: musicLoading } = useAmbientMusic();
 
   useEffect(() => {
     if (!currentCard && !isGameOver && !isLoading) {
@@ -35,6 +37,10 @@ export default function Home() {
 
   const handleLoadingComplete = () => {
     completeLoading();
+    // Start ambient music when game begins
+    if (!musicLoading) {
+      playAmbientMusic();
+    }
   };
 
   const currentCalendarYear = 700 + yearsInPower;
