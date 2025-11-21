@@ -1,0 +1,29 @@
+/node_modules
+/.pnp
+.pnp.*
+
+# Build artifacts
+/dist
+/dist/
+dist/
+/dist/renderer
+/dist/electron
+/dist/releases
+
+# Logs
+pnpm-debug.log*
+npm-debug.log*
+yarn-error.log*
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# TypeScript
+*.tsbuildinfo
+
+# Editor & OS
+.DS_Store
+.idea/
+.vscode/

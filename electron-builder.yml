@@ -1,0 +1,13 @@
+productName: ReignsDesktop
+appId: com.reigns.desktop
+npmRebuild: false
+directories:
+  output: dist/releases
+files:
+  - dist/electron/**
+  - dist/renderer/**
+  - package.json
+  - pnpm-lock.yaml
+linux:
+  target:
+    - AppImage

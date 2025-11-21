@@ -1,0 +1,70 @@
+{
+  "author": {
+    "name": "Fernando Emmanuel Braz",
+    "url": "https://github.com/feremabraz"
+  },
+  "dependencies": {
+    "@radix-ui/react-dialog": "^1.1.15",
+    "@radix-ui/react-label": "^2.1.8",
+    "@radix-ui/react-progress": "^1.1.8",
+    "@radix-ui/react-slot": "^1.2.3",
+    "@radix-ui/react-tooltip": "^1.2.8",
+    "@react-three/drei": "^10.7.7",
+    "@react-three/fiber": "^9.4.0",
+    "@use-gesture/react": "^10.3.1",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "jotai": "^2.12.5",
+    "lucide-react": "^0.522.0",
+    "motion": "^12.19.1",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "tailwind-merge": "^3.3.1",
+    "three": "^0.181.2"
+  },
+  "description": "A fan-made browser-based version of the game Reigns.",
+  "devDependencies": {
+    "@biomejs/biome": "^2.0.4",
+    "@tailwindcss/postcss": "^4.1.10",
+    "@types/node": "^24.0.3",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "@types/three": "^0.181.0",
+    "@vitejs/plugin-react-swc": "^4.0.1",
+    "concurrently": "^9.0.1",
+    "electron": "^32.2.3",
+    "electron-builder": "^25.1.2",
+    "husky": "^9.1.7",
+    "tailwindcss": "^4.1.10",
+    "tsup": "^8.3.0",
+    "typescript": "^5.8.3",
+    "vite": "^6.0.5",
+    "vite-tsconfig-paths": "^5.1.2",
+    "wait-on": "^7.2.0",
+    "zx": "^8.2.4"
+  },
+  "trustedDependencies": [
+    "electron"
+  ],
+  "name": "reigns-like",
+  "private": true,
+  "main": "dist/electron/main.js",
+  "scripts": {
+    "build": "vite build",
+    "build:renderer": "vite build",
+    "build:electron": "tsup",
+    "build:all": "pnpm build:renderer && pnpm build:electron",
+    "dev": "vite",
+    "dev:renderer": "vite --host 127.0.0.1 --port 5173",
+    "dev:electron-bundle": "tsup --watch",
+    "dev:electron": "wait-on tcp:5173 dist/electron/main.js && electron .",
+    "dev:desktop": "concurrently \"pnpm dev:renderer\" \"pnpm dev:electron-bundle\" \"pnpm dev:electron\"",
+    "format": "biome format --write .",
+    "lint": "biome check --write .",
+    "prepare": "husky",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "build:desktop": "zx scripts/package.mjs"
+  },
+  "version": "0.1.0"
+}

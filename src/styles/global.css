@@ -1,0 +1,91 @@
+@import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap");
+
+@font-face {
+  font-family: "Pixelify Sans";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("/fonts/pixelify-sans.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Orbitron";
+  font-style: normal;
+  font-weight: 500 700;
+  font-display: swap;
+  src: url("https://fonts.gstatic.com/s/orbitron/v32/yMJRMIlzdpvBhQQL_Qq7dys.woff2") format("woff2");
+}
+
+:root {
+  --font-pixelify: "Pixelify Sans", sans-serif;
+  --font-orbitron: "Orbitron", "Pixelify Sans", monospace;
+}
+
+body {
+  font-family: var(--font-pixelify);
+}
+
+* {
+  cursor: url("/cursors/gauntlet_default.svg"), auto;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-touch-callout: none;
+}
+
+input,
+textarea,
+[contenteditable="true"],
+.allow-select {
+  user-select: text;
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+}
+
+img {
+  -webkit-user-drag: none;
+  pointer-events: none;
+}
+
+img.interactive,
+button img,
+a img {
+  pointer-events: auto;
+}
+
+button,
+a,
+[role="button"],
+[tabindex]:not([tabindex="-1"]),
+input[type="submit"],
+input[type="button"],
+input[type="reset"],
+.cursor-pointer {
+  cursor: url("/cursors/gauntlet_point.svg"), pointer;
+}
+
+[draggable="true"],
+.cursor-grab {
+  cursor: url("/cursors/gauntlet_open.svg"), grab;
+}
+
+[draggable="true"]:active,
+.cursor-grabbing {
+  cursor: url("/cursors/gauntlet_open.svg"), grabbing;
+}
+
+.gauntlet-default {
+  cursor: url("/cursors/gauntlet_default.svg"), auto;
+}
+
+.gauntlet-point {
+  cursor: url("/cursors/gauntlet_point.svg"), pointer;
+}
+
+.gauntlet-open {
+  cursor: url("/cursors/gauntlet_open.svg"), grab;
+}
