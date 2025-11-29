@@ -32,7 +32,7 @@
     "@types/three": "^0.181.0",
     "@vitejs/plugin-react-swc": "^4.0.1",
     "concurrently": "^9.0.1",
-    "electron": "^32.2.3",
+    "electron": "^35.7.5",
     "electron-builder": "^25.1.2",
     "husky": "^9.1.7",
     "tailwindcss": "^4.1.10",
